@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { useState } from 'react';
+import EditorJS from '@editorjs/editorjs';
+import Header from '@editorjs/header';
+import List from '@editorjs/list';
+
+
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [editor, _setEditor] = useState(
+    () => new EditorJS({
+      autofocus: true,
+      holder: 'editorjs',
+      readOnly: false,
+      tools: {
+        header: Header,
+        list: List,
+      }
+    })
+  );
+
+  const save = () => {
+    editor.save().then((savedData) => {
+      const output = document.getElementById("output");
+
+      output.innerHTML = JSON.stringify(savedData, null, 4);
+    });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div> <h1> Editor JS</h1> </div>
+      <div id="editorjs" />
+      <button onClick={save}>Save</button>
+      <pre style={{ textAlign: "left" }} id="output" />
     </div>
   );
+
 }
 
 export default App;
