@@ -4,7 +4,7 @@ import { useState } from 'react';
 import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
-
+import ToggleBlock from 'editorjs-toggle-block';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -16,6 +16,10 @@ function App() {
       tools: {
         header: Header,
         list: List,
+        toggle: {
+          class: ToggleBlock,
+          inlineToolbar: true,
+        },
       }
     })
   );
