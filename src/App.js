@@ -5,11 +5,15 @@ import EditorJS from '@editorjs/editorjs';
 import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import ToggleBlock from 'editorjs-toggle-block';
+import Undo from 'editorjs-undo';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
   const [editor, _setEditor] = useState(
     () => new EditorJS({
+      onReady: () => {
+        new Undo({ editor });
+      },
       autofocus: true,
       holder: 'editorjs',
       readOnly: false,
