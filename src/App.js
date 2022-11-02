@@ -6,6 +6,8 @@ import Header from '@editorjs/header';
 import List from '@editorjs/list';
 import ToggleBlock from 'editorjs-toggle-block';
 import Undo from 'editorjs-undo';
+import DragDrop from 'editorjs-drag-drop';
+
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -13,6 +15,7 @@ function App() {
     () => new EditorJS({
       onReady: () => {
         new Undo({ editor });
+        new DragDrop(editor);
       },
       autofocus: true,
       holder: 'editorjs',
