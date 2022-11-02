@@ -7,7 +7,7 @@ import List from '@editorjs/list';
 import ToggleBlock from 'editorjs-toggle-block';
 import Undo from 'editorjs-undo';
 import DragDrop from 'editorjs-drag-drop';
-
+import InlineImage from 'editorjs-inline-image';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -26,6 +26,19 @@ function App() {
         toggle: {
           class: ToggleBlock,
           inlineToolbar: true,
+        },
+        image: {
+          class: InlineImage,
+          inlineToolbar: true,
+          config: {
+            embed: {
+              display: true,
+            },
+            unsplash: {
+              appName: 'your_app_name',
+              clientId: 'your_client_id'
+            }
+          }
         },
       }
     })
