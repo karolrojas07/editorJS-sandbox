@@ -9,6 +9,7 @@ import Undo from 'editorjs-undo';
 import DragDrop from 'editorjs-drag-drop';
 import InlineImage from 'editorjs-inline-image';
 import BreakLine from 'editorjs-break-line';
+import Tooltip from 'editorjs-tooltip';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -28,6 +29,17 @@ function App() {
           class: BreakLine,
           inlineToolbar: true,
           shortcut: 'CMD+SHIFT+ENTER',
+        },
+        tooltip: {
+          class: Tooltip,
+          config: {
+            location: 'left',
+            highlightColor: '#FFEFD5',
+            underline: true,
+            backgroundColor: '#154360',
+            textColor: '#FDFEFE',
+            holder: 'editorjs',
+          }
         },
         toggle: {
           class: ToggleBlock,
