@@ -8,6 +8,7 @@ import ToggleBlock from 'editorjs-toggle-block';
 import Undo from 'editorjs-undo';
 import DragDrop from 'editorjs-drag-drop';
 import InlineImage from 'editorjs-inline-image';
+import BreakLine from 'editorjs-break-line';
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -23,6 +24,11 @@ function App() {
       tools: {
         header: Header,
         list: List,
+        breakLine: {
+          class: BreakLine,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+ENTER',
+        },
         toggle: {
           class: ToggleBlock,
           inlineToolbar: true,
